@@ -28,15 +28,16 @@ if ($secret != $notify_secret)
 }
 
 
-// We got an ip and a valid secret if we reach this line.
+// We got an `ip` and a valid `secret` if we reach this line.
 
 
-// Do something with ip.
+// Do something with `ip`.
+// for_example_store_ip_to_db(ip: $ip);
 
 
-// Return status code 200 when all good:
+// Return status code 200 when your logic succeeded:
 http_response_code(response_code: 200);
 
 
-// Or a code that is not 200 if something went wrong:
+// ...or a code that is not 200 when your logic failed:
 // http_response_code(response_code: 400);
