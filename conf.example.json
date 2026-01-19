@@ -1,6 +1,8 @@
 {
     "notify_url": "http://localhost/lowtechip/remote.example.php",
 
+    "notify_secret": "change_me",
+
     "daemon_interval": 60.0,
 
     "ip_api_endpoint": "https://api64.ipify.org",

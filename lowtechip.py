@@ -52,7 +52,7 @@ class Lowtechip:
                 else:
                     is_first_iter = False
 
-                self.screen_msg("fetching external ip")
+                self.screen_msg("fetching puplic ip")
                 ip: str = self.fetch_ip()
 
                 if ip == self.prev_ip:
@@ -90,7 +90,15 @@ class Lowtechip:
 
 
     def send_ip(self, ip: str) -> requests.Response:
-        r: requests.Response = requests.post(url=self.conf['notify_url'], data={'ip': ip}, timeout=self.conf['req_timeout'], headers=self.conf['req_headers'])
+        r: requests.Response = requests.post(
+            url=self.conf['notify_url'],
+            data={
+                'ip': ip,
+                'secret': self.conf['notify_secret'],
+            },
+            timeout=self.conf['req_timeout'],
+            headers=self.conf['req_headers']
+        )
         r.raise_for_status()
         return r
 
