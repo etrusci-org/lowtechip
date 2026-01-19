@@ -7,7 +7,6 @@ A lowtech solution to monitor changes in the current machine's public IP and not
 
 ## Requirements
 
-- Linux, Windows or Mac operating system.
 - [Python](https://www.python.org) `>= 3.11.2`
   - [requests](https://github.com/psf/requests) `>= 2.32.5`
 
