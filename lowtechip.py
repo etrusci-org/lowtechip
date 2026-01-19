@@ -38,8 +38,6 @@ class Lowtechip:
 
         self.conf: dict = json.loads(s=conf_file.read_text())
 
-        print(f"loaded conf = {json.dumps(obj=self.conf, ensure_ascii=False, indent=4)}")
-
 
     def daemon(self):
         is_first_iter: bool = True
@@ -47,7 +45,6 @@ class Lowtechip:
         while True:
             try:
                 if not is_first_iter:
-                    self.screen_msg(f"next check on {datetime.datetime.fromtimestamp(time.time() + self.conf['daemon_interval']).strftime('%Y-%m-%d %H:%M:%S')}")
                     time.sleep(self.conf['daemon_interval'])
                 else:
                     is_first_iter = False
@@ -74,7 +71,7 @@ class Lowtechip:
 
             except Exception as e:
                 self.screen_msg(f"  BOO: {e}")
-                self.screen_msg("  trying again soon")
+                self.screen_msg("  will try again")
 
 
     def fetch_ip(self) -> str:
@@ -111,4 +108,19 @@ class Lowtechip:
 
 
 if __name__ == '__main__':
-    Lowtechip().daemon()
+    App = Lowtechip()
+
+    print("       /~~~~~~~~~~~~~~~~~\\")
+    print("        l o w t e c h i p")
+    print("       \\~~~~~~~~~~~~~~~~~/")
+    print()
+    print(f"     notify_url = {App.conf['notify_url']}")
+    print(f"daemon_interval = {App.conf['daemon_interval']}")
+    print(f"ip_api_endpoint = {App.conf['ip_api_endpoint']}")
+    print(f"    req_timeout = {App.conf['req_timeout']}")
+    print(f"    req_headers = {App.conf['req_headers']}")
+    print()
+    input("Press [Enter] to start.")
+    print()
+
+    App.daemon()
