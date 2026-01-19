@@ -3,7 +3,7 @@
 
     "daemon_interval": 60.0,
 
-    "ip_api_endpoint": "https://api.ipify.org",
+    "ip_api_endpoint": "https://api64.ipify.org",
 
     "req_timeout": 10.0,
 

@@ -2,11 +2,11 @@
 lowtechip
 ~~~~~~~~~
 
-> python3 lowtechip.py <path/to/conf.json>
+A lowtech solution to monitor changes in the current machine's public IP and notify a remote server when such changes occur.
 
-Rename conf.example.json to something else and adjust it to your needs.
-You most likely want to change only notify_url and daemon_interval first.
-Then run `python3 lowtechip.py yourconf.json`
+Usage: python3 lowtechip.py <path/to/conf.json>
+
+Please see the README for more.
 '''
 
 import datetime
@@ -15,7 +15,6 @@ import pathlib
 import sys
 import time
 import urllib.parse
-
 import requests
 
 
@@ -28,7 +27,6 @@ class Lowtechip:
 
     def __init__(self) -> None:
         if len(sys.argv) < 2:
-            # print("print usage here later")
             print(__doc__)
             sys.exit(0)
 
