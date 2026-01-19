@@ -17,7 +17,8 @@ A lowtech solution to monitor changes in the current machine's public IP and not
 ## Setup
 
 1. Install the requirements.
-2. Copy and rename **[conf.example.json](./conf.example.json)** to **myconf.json**, then adjust the values in **myconf.json** to your needs. You most likely want to change only `notify_url` and `daemon_interval` first.
+2. Copy **[remote.example.php](./remote.example.php)** to your webserver. Or use the example code as a starting point for your own script in a language of your choice.
+3. Copy and rename **[conf.example.json](./conf.example.json)** to **myconf.json**, then adjust the values in **myconf.json** to your needs. You most likely want to change only `notify_url` and `daemon_interval` first.
 
 
 
@@ -42,3 +43,10 @@ python3 lowtechip.py myconf.json
 ## Thanks to
 
 - **[ipify.org](https://ipify.org)** for the nifty public IP address API which **lowtechip** uses as default endpoint.
+
+
+
+
+## License
+
+**lowtechip** is licensed under **[The Unlicense](./LICENSE.md)**.
